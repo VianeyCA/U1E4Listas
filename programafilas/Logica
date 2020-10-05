@@ -1,44 +1,35 @@
 package programafilas;
 
+import java.util.ArrayList;
+
 public class Logica {
     
-     public void Intercalacion(String A[], String B[]) {
-         String C[];
-         int i, j, k;
-         int tamaño = 0, num1 = 0, num2 = 0;
-         if (A.length > B.length) 
-         {
-            num1 = A.length;
-            num2 = B.length;
-         } 
-         else 
-         {
-            num1 = B.length;
-            num2 = A.length;
+     public void Compara(String A[], String B[]) {
+         ArrayList<String> C = new ArrayList<>();
+         int k = 0;
+         for (int i = 0; i < A.length; i++) {
+            for (int j = 0; j < B.length; j++) {
+                if (A[i].equals(B[j])) {
+                    C.add(A[i]);
+                 }
+             }
          }
-         C = new String[num1];
-         for (i = j = k = 0; i < num1 && k < num2; i++) {
-            System.out.println(A[i] + "=" + B[k]);
-            if (A[i].equals(B[k])) {
-                C[j] = A[i];
-                j++;
-                k++;
-            }
+         String c[] = new String[C.size()];
+         for (int i = 0; i < C.size(); i++) {
+            c[i] = C.get(i);
 
-        }
-        Mostrar(C);
+         }
+         verArr(c);
     }
 
-    public void Mostrar(String M[]) {
-        System.out.println("");
-        for (int i = 0; i < M.length; i++) {
-            if (M[i] != null) {
-                System.out.println("[" + i + "]" + M[i]);
+     public void verArr(String M[]) {
+         System.out.println("");
+         for (int i = 0; i < M.length; i++) {
+             if (M[i] != null) {
+                System.out.println(M[i]);
 
             }
         }
         System.out.println("");
-    }
-
-    
+    }   
 }
